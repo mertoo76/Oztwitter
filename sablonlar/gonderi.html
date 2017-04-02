@@ -1,0 +1,16 @@
+{% macro oge(gonderi, kullanici) %}
+<li>
+	<p>{{ gonderi.adsoyad }} (@{{ gonderi.kullaniciadi }})</p>
+	<p>{{ gonderi.tarih }}</p>
+	<p>{{ gonderi.metin }}</p>
+	<p>
+		<a href="#"><i class="glyphicon glyphicon-share-alt"></i> Yanıtla</a>
+		<a href="favori.php?id={{ gonderi.id }}"><i class="glyphicon glyphicon-star-empty"></i> Favorilere Ekle</a>
+		{% if gonderi.kullanici_id == kullanici.id %}
+		<a href="sil.php?id={{ gonderi.id }}"><i class="glyphicon glyphicon-trash"></i> Sil</a>
+		{% else %}
+		<a href="rt.php?id={{ gonderi.id }}"><i class="glyphicon glyphicon-retweet"></i> Özretweet</a>
+		{% endif %}
+	</p>
+</li>
+{% endmacro %}

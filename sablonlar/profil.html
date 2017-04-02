@@ -1,0 +1,33 @@
+{% extends "temel.html" %}
+{% import "gonderi.html" as gonderi %}
+{% block icerik %}
+<div class="col-sm-4">
+	<h3>{{ profil.adsoyad }}</h3>
+	<h4>@{{ profil.kullaniciadi}}</h4>
+	<p>{{ profil.bio }}</p>
+	<div class="row">
+		<div class="col-xs-4">123</div>
+		<div class="col-xs-4">456</div>
+		<div class="col-xs-4">789</div>
+	</div>
+</div>
+<div class="col-sm-8">
+	<form method="POST" class="panel panel-default">
+		<div class="panel-body">
+			<textarea name="gonderi" class="form-control"></textarea>
+			<input type="submit" class="btn btn-primary" value="Öztweetle">
+		</div>
+	</form>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<ul>
+				{% for g in gonderiler %}
+				{{ gonderi.oge(g, kullanici) }}
+				{% else %}
+				<p>Bu kullanıcının henüz hiç gönderisi yok!</p>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
